@@ -165,6 +165,7 @@ int main() {
     }
 
 
+
     cout << "Iteration " << iteration << " dengan cost " << lowestValue << endl;
 
     
@@ -172,6 +173,9 @@ int main() {
 
 
     cout << "Jumlah perubahan (swap) yang terjadi: " << swap_steps.size() << endl;
+    
+    // Output total cost for the final state of the cube
+    cout << "Total cost for final state of cube: " << totalCost(cube, MN) << endl;
     
 
     return 0;
