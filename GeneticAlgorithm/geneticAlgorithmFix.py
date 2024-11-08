@@ -66,35 +66,70 @@ def choose_cube_by_random(randomize_count, fitness_values, total_fitness):
                 
     return chosen_cubes
 
+def find_number_in_cube(parent, x):
+    n = parent.shape[0]
+    
+    for i in range(n):
+        for j in range(n):
+            for k in range(n):
+                if parent[i, j, k] == x:
+                    return (i, j, k) 
+    return None
+
 #crossover
 def crossover(parent1, parent2):
-    n = len(parent1)  # Size of the cube
+    n = len(parent1) 
     child1, child2 = parent1.copy(), parent2.copy()
+    x = random.randint(1, n**3) 
+    i1, j1, k1 = find_number_in_cube(child1, x)
+    i2, j2, k2 = find_number_in_cube(child2, x)
 
     def valid_position(i, j, k, x, y, z):
-        if (i == x) or (j == y) or (k == z):
+        if i == x or j == y or k == z:
             return False
-        if (i == j == k) or (x == y == z): 
+
+        if i == j and x == y:
             return False
-        if (i == j and x == y) or (i == k and x == z) or (j == k and y == z):
+        if i == (5 - 1 - j) and x == (5 - 1 - y):  
             return False
-        if (i + j == n - 1 and x + y == n - 1) or (i + k == n - 1 and x + z == n - 1) or (j + k == n - 1 and y + z == n - 1):
+        if j == k and y == z:
             return False
-        
+        if j == (5 - 1 - k) and y == (5 - 1 - z): 
+            return False
+        if i == k and x == z:
+            return False
+        if i == (5 - 1 - k) and x == (5 - 1 - z):
+            return False
+
+        if (i == j == k) and (x == y == z):  
+            return False
+        if (i == j == (5 - 1 - k)) and (x == y == (5 - 1 - z)): 
+            return False
+        if (i == (5 - 1 - j) == k) and (x == (5 - 1 - y) == z): 
+            return False
+        if (i == (5 - 1 - j) == (5 - 1 - k)) and (x == (5 - 1 - y) == (5 - 1 - z)):  
+            return False
+
         return True
 
+    max_attempts = 100
     attempts = 0
-    while attempts < 10:
-        i1, j1, k1 = random.randint(0, n - 1), random.randint(0, n - 1), random.randint(0, n - 1)
-        i2, j2, k2 = random.randint(0, n - 1), random.randint(0, n - 1), random.randint(0, n - 1)
-
-        if valid_position(i1, j1, k1, i2, j2, k2):
-            child1[i1, j1, k1], child2[i2, j2, k2] = parent2[i2, j2, k2], parent1[i1, j1, k1]
-            break
+    while not valid_position(i1, j1, k1, i2, j2, k2) and attempts < max_attempts:
+        x = random.randint(1, n**3) 
+        i1, j1, k1 = find_number_in_cube(child1, x)
+        i2, j2, k2 = find_number_in_cube(child2, x)
         attempts += 1
 
+    if attempts == max_attempts:
+        return child1, child2
+
+    a = parent1[i2, j2, k2]
+    b = parent1[i1, j1, k1]
+    child1[i1, j1, k1], child2[i2, j2, k2] = b, a
+    
     return child1, child2
 
+        
 #mutation
 def mutation(cube, mutation_rate=0.05):
     n = cube.shape[0]  
@@ -132,13 +167,18 @@ def run_genetic_algorithm(population_size, num_iterations):
         chosen_indices = choose_cube_by_random(2, fitness_values, total_fitness)
         if len(chosen_indices) < 2:
             continue
-
+        
         parent1, parent2 = cubes[chosen_indices[0]], cubes[chosen_indices[1]]
 
         #crossover & mutation
         child1, child2 = crossover(parent1, parent2)
         child1 = mutation(child1)
         child2 = mutation(child2)
+
+        # print("child1")
+        # print(child1)
+        # print("child2")
+        # print(child2)
 
         #update best child
         for child in [child1, child2]:
