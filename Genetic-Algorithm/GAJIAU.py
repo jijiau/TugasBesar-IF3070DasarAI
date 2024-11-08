@@ -151,24 +151,15 @@ def run_genetic_algorithm(population_size, num_iterations):
     best_fitness = float('inf')
 
     for _ in range(num_iterations):
-        # Hitung fitness untuk seluruh populasi
-        fitness_values = [fitness(cube) for cube in cubes]
-        
-        # Cari kubus dengan fitness terbaik
-        for cube, fit_value in zip(cubes, fitness_values):
-            if fit_value < best_fitness:
-                best_fitness = fit_value
-                best_cube = cube
-        
         # Cek kriteria berhenti jika solusi optimal ditemukan
         if best_fitness == 0:
             break
 
-        # Buat populasi baru dengan anak-anak hasil crossover
-        new_population = []
-        for i in range(0, population_size, 2):
+        # Buat populasi anak-anak baru
+        new_children = []
+        for i in range(0, len(cubes), 2):
             # Pasangkan dua parent secara berurutan
-            parent1, parent2 = cubes[i], cubes[i + 1]
+            parent1, parent2 = cubes[i], cubes[i + 1] if i + 1 < len(cubes) else cubes[0]
             
             # Lakukan crossover untuk menghasilkan dua anak
             child1, child2 = crossover(parent1, parent2)
@@ -177,12 +168,21 @@ def run_genetic_algorithm(population_size, num_iterations):
             child1 = mutation(child1)
             child2 = mutation(child2)
             
-            # Tambahkan anak-anak ke populasi baru
-            new_population.extend([child1, child2])
+            # Tambahkan anak-anak ke daftar new_children
+            new_children.extend([child1, child2])
 
-        # Gantikan populasi lama dengan populasi baru
-        cubes = new_population
+        # Gabungkan parent lama dan anak-anak baru sebagai populasi baru
+        cubes.extend(new_children)
 
+        # Hitung fitness untuk seluruh populasi
+        fitness_values = [fitness(cube) for cube in cubes]
+        
+        # Cari kubus dengan fitness terbaik
+        for cube, fit_value in zip(cubes, fitness_values):
+            if fit_value < best_fitness:
+                best_fitness = fit_value
+                best_cube = cube
+    
     return best_cube, best_fitness
 
 
