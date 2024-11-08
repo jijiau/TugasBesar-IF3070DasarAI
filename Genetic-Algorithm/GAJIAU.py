@@ -145,37 +145,46 @@ def mutation(cube):
 
 # main genetic algorithm function
 def run_genetic_algorithm(population_size, num_iterations):
+    # Inisialisasi populasi awal
     cubes = initial_population(population_size)
-    fitness_values = [fitness(cube) for cube in cubes]
-    total_fitness = sum(fitness_values)
-
     best_cube = None
     best_fitness = float('inf')
 
     for _ in range(num_iterations):
-        if best_fitness == 0:  # Early stopping if solution is found
+        # Hitung fitness untuk seluruh populasi
+        fitness_values = [fitness(cube) for cube in cubes]
+        
+        # Cari kubus dengan fitness terbaik
+        for cube, fit_value in zip(cubes, fitness_values):
+            if fit_value < best_fitness:
+                best_fitness = fit_value
+                best_cube = cube
+        
+        # Cek kriteria berhenti jika solusi optimal ditemukan
+        if best_fitness == 0:
             break
 
-        chosen_indices = choose_cube_by_random(fitness_values, total_fitness)
-        if len(chosen_indices) < 2:
-            continue
+        # Buat populasi baru dengan anak-anak hasil crossover
+        new_population = []
+        for i in range(0, population_size, 2):
+            # Pasangkan dua parent secara berurutan
+            parent1, parent2 = cubes[i], cubes[i + 1]
+            
+            # Lakukan crossover untuk menghasilkan dua anak
+            child1, child2 = crossover(parent1, parent2)
+            
+            # Terapkan mutasi pada anak-anak
+            child1 = mutation(child1)
+            child2 = mutation(child2)
+            
+            # Tambahkan anak-anak ke populasi baru
+            new_population.extend([child1, child2])
 
-        parent1, parent2 = cubes[chosen_indices[0]], cubes[chosen_indices[1]]
-
-        child1, child2 = crossover(parent1, parent2)
-        child1 = mutation(child1)
-        child2 = mutation(child2)
-
-        for child in [child1, child2]:
-            child_fitness = fitness(child)
-            if child_fitness < best_fitness:
-                best_fitness = child_fitness
-                best_cube = child
-
-        fitness_values = [fitness(cube) for cube in cubes]
-        total_fitness = sum(fitness_values)
+        # Gantikan populasi lama dengan populasi baru
+        cubes = new_population
 
     return best_cube, best_fitness
+
 
 # Running with various configurations
 global_best_cube = None
