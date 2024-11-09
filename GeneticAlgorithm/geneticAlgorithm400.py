@@ -13,9 +13,7 @@ def generate_different_cubes(cube, num_cubes=100):
     cubes = []
     for _ in range(num_cubes):
         new_cube = cube.copy()
-        i1, j1, k1 = random.randint(0, 4), random.randint(0, 4), random.randint(0, 4)
-        i2, j2, k2 = random.randint(0, 4), random.randint(0, 4), random.randint(0, 4)
-        new_cube[i1, j1, k1], new_cube[i2, j2, k2] = new_cube[i2, j2, k2], new_cube[i1, j1, k1]
+        np.random.shuffle(new_cube.flat)  # Variasi awal dengan acak penuh
         cubes.append(new_cube)
     return cubes
 
@@ -23,14 +21,14 @@ def fitness(cube, magic_number=315):
     total_difference = 0
     for i in range(5):
         for j in range(5):
-            total_difference += abs(np.sum(cube[i, j, :]) - magic_number) 
-            total_difference += abs(np.sum(cube[i, :, j]) - magic_number) 
-            total_difference += abs(np.sum(cube[:, i, j]) - magic_number) 
+            total_difference += abs(np.sum(cube[i, j, :]) - magic_number)  # Row
+            total_difference += abs(np.sum(cube[i, :, j]) - magic_number)  # Column
+            total_difference += abs(np.sum(cube[:, i, j]) - magic_number)  # Pillar
 
     for i in range(5):
-        total_difference += abs(np.sum([cube[i, j, j] for j in range(5)]) - magic_number) 
-        total_difference += abs(np.sum([cube[j, j, i] for j in range(5)]) - magic_number) 
-        total_difference += abs(np.sum([cube[j, i, j] for j in range(5)]) - magic_number) 
+        total_difference += abs(np.sum([cube[i, j, j] for j in range(5)]) - magic_number)  # XY diagonal
+        total_difference += abs(np.sum([cube[j, j, i] for j in range(5)]) - magic_number)  # YZ diagonal
+        total_difference += abs(np.sum([cube[j, i, j] for j in range(5)]) - magic_number)  # XZ diagonal
 
     total_difference += abs(np.sum([cube[j, j, j] for j in range(5)]) - magic_number)
     total_difference += abs(np.sum([cube[j, j, 5 - 1 - j] for j in range(5)]) - magic_number)
@@ -40,53 +38,20 @@ def fitness(cube, magic_number=315):
     return total_difference
 
 def choose_cube_by_random(num_select, priority_queue):
-    fitness_values = [1 / (item[0] + 1e-6) for item in priority_queue]
+    fitness_values = [1 / (item[0] + 1e-6) for item in priority_queue]  # avoid division by zero
     total_fitness = sum(fitness_values)
     probabilities = [f / total_fitness for f in fitness_values]
     chosen_indices = np.random.choice(len(priority_queue), size=num_select, p=probabilities, replace=False)
-
     return chosen_indices.tolist()
 
-def find_number_in_cube(cube, number):
-    for i in range(5):
-        for j in range(5):
-            for k in range(5):
-                if cube[i, j, k] == number:
-                    return (i, j, k)
-    return None
-
-def valid_position(i1, j1, k1, i2, j2, k2):
-    # Check if they are in the same row, column, or pillar
-    if i1 == i2 or j1 == j2 or k1 == k2:
-        return False
-
-    # Check if they are on the same plane diagonal
-    if (i1 == j1 == k1 and i2 == j2 == k2) or (i1 == j1 and i2 == j2 and k1 + k2 == 4) or \
-       (i1 == k1 and i2 == k2 and j1 + j2 == 4) or (j1 == k1 and j2 == k2 and i1 + i2 == 4):
-        return False
-
-    return True
-
 def crossover(parent1, parent2):
-    n = len(parent1)  
+    n = len(parent1)
     child1, child2 = parent1.copy(), parent2.copy()
-    
-    random_number = random.randint(1, 125)
-    
-    i1, j1, k1 = find_number_in_cube(child1, random_number)
-    i2, j2, k2 = find_number_in_cube(child2, random_number)
+    i1, j1, k1 = random.randint(0, n-1), random.randint(0, n-1), random.randint(0, n-1)
+    i2, j2, k2 = random.randint(0, n-1), random.randint(0, n-1), random.randint(0, n-1)
 
-    while not valid_position(i1, j1, k1, i2, j2, k2):
-        random_number = random.randint(1, 125)
-        i1, j1, k1 = find_number_in_cube(child1, random_number)
-        i2, j2, k2 = find_number_in_cube(child2, random_number)
-    
-    
-    child1[i1, j1, k1], child2[i2, j2, k2] = child2[i2, j2, k2], child1[i1, j1, k1]
-    print(f"Crossover: [{i1}, {j1}, {k1}] in child1 swapped with [{i2}, {j2}, {k2}] in child2")
-
+    child1[i1, j1, k1], child2[i2, j2, k2] = parent2[i2, j2, k2], parent1[i1, j1, k1]
     return child1, child2
-
 
 def mutation(cube, mutation_rate=0.05):
     num_swaps = int(125 * mutation_rate)
