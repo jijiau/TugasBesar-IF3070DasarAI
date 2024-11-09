@@ -8,28 +8,43 @@ from base_solver import CubeSolver
 class SimulatedAnnealingSolver(CubeSolver):
     def __init__(self, state=None):
         super().__init__(state)
+        self.swap_history = []  # Initialize swap history
 
     def generate_random_neighbor(self, state):
         neighbor = state.copy()
         i, j = random.sample(range(len(state)), 2)
         neighbor[i], neighbor[j] = neighbor[j], neighbor[i]
+
+        # Track the swap in 3D index form
+        swap_indices = [self.linear_to_3d(i), self.linear_to_3d(j)]
+        self.swap_history.append(swap_indices)
+
         return neighbor
 
-    def format_state_as_layers(self, state):
+    def linear_to_3d(self, index):
         """
-        Converts a 125-element state list into five 5x5 layers for display.
+        Converts a linear index (0-124) to a 3D cube index (layer, row, col).
+        Assumes a 5x5x5 structure.
         """
-        return [np.array(state[i * 25:(i + 1) * 25]).reshape(5, 5) for i in range(5)]
+        layer = index // 25  # 5x5 layer
+        row = (index % 25) // 5  # 5 rows per layer
+        col = index % 5  # 5 columns per row
+        return [layer, row, col]
 
-    def display_formatted_state(self, state):
+    def display_swap_history(self):
         """
-        Prints the cube's state in a 5x5 layer format.
+        Returns the swap history with each swap as a single flattened array.
+        Each swap is represented as a list of six values: [layer1, row1, col1, layer2, row2, col2].
         """
-        layers = self.format_state_as_layers(state)
-        for i, layer in enumerate(layers):
-            print(f"Layer {i+1}:\n{layer}\n")
+        # Flatten each pair of swaps into a single list [layer1, row1, col1, layer2, row2, col2]
+        flattened_swaps = [swap[0] + swap[1] for swap in self.swap_history]
+        return flattened_swaps
 
-    def simulated_annealing(self, initial_temp=1000, cooling_rate=0.99, min_temp=0.1):
+
+    def simulated_annealing(self, initial_temp=100, cooling_rate=0.8, min_temp=0.01):
+        # Initialize or reset the swap history
+        self.swap_history.clear()
+
         current_state = self.state
         initial_state = current_state.copy()
         current_value = self.calculate_objective(current_state)
@@ -45,20 +60,21 @@ class SimulatedAnnealingSolver(CubeSolver):
         start_time = datetime.now()
 
         plt.ion()  
-        fig = plt.figure(figsize=(14,14))
-        gs = fig.add_gridspec(nrows=5, ncols=1, height_ratios=[2,0.5,2,0.5,2])
+        fig = plt.figure(figsize=(14, 14))
+        gs = fig.add_gridspec(nrows=6, ncols=1, height_ratios=[2, 0.5, 0.1, 2, 0.5, 2])
         ax = fig.add_subplot(gs[0])
         ax.set_xlabel('Iteration')
         ax.set_ylabel('Objective Value')
-        ax.set_title('Simulated Annealing Objective Value over Iterations')
+        ax.set_title('Plot Objective Function terhadap Iterasi (SA)')
 
-        ax2 = fig.add_subplot(gs[2])
-        ax2.margins(0.3)
-        ax2.set_xlabel('Iteration')
+        ax2 = fig.add_subplot(gs[3])
+        ax2.margins(0.1)
         ax2.set_ylabel('e^(ΔE/T)')
         ax2.set_title('Exponential Acceptance Probability over Iterations')
         
-        gs2 = gs[4].subgridspec(1, 5)
+        fig.add_subplot(gs[2]).axis('off')
+
+        gs2 = gs[5].subgridspec(1, 5)
         cube_axes = [fig.add_subplot(gs2[0, i]) for i in range(5)]
 
         self.visualize_state(current_state, axes=cube_axes)
@@ -68,7 +84,7 @@ class SimulatedAnnealingSolver(CubeSolver):
             iterations.append(iteration)
             objective_values.append(current_value)
             
-            ax.plot(iterations, objective_values, color='red')
+            ax.plot(iterations, objective_values, color='purple')
             for ax1 in cube_axes:
                 ax1.clear()
             self.visualize_state(current_state, axes=cube_axes)
@@ -88,7 +104,7 @@ class SimulatedAnnealingSolver(CubeSolver):
             
             valid_exp_values = [v for v in exp_values if v is not None]
             valid_iterations = [iterations[i] for i, v in enumerate(exp_values) if v is not None]
-            ax2.plot(valid_iterations, valid_exp_values, color='blue')
+            ax2.plot(valid_iterations, valid_exp_values, color='red')
             if delta_e >= 0 or exp_value > random.random():
                 current_state = neighbor
                 current_value = neighbor_value
@@ -130,5 +146,13 @@ class SimulatedAnnealingSolver(CubeSolver):
         # Display the final state in array format
         print("Final State (Array Format):")
         self.display_formatted_state(best_state)
+
+        # Display swap history after annealing
+        print("Swap History : \n")
+        swap_history = self.display_swap_history()
+        print(swap_history)
+        print("\n")
+
         
         return best_state
+
