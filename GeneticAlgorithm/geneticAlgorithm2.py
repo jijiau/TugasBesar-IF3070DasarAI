@@ -111,3 +111,32 @@ chosen_cubes = choose_cube_by_random(randomize_count, fitness_values, total_fitn
 print("\nRandomly chosen cubes based on percentage ranges:")
 for choice in chosen_cubes:
     print(choice)
+
+        for _ in range(num_iterations):
+        chosen_indices = choose_cube_by_random(10, fitness_values, total_fitness)
+
+        # Pastikan chosen_indices memiliki cukup elemen untuk membuat pasangan
+        if len(chosen_indices) < 2:
+            continue
+
+        # Reset a dan b untuk setiap iterasi num_iterations
+        a = 0
+        b = 1
+        while b < len(chosen_indices):
+            parent1, parent2 = cubes[chosen_indices[a]], cubes[chosen_indices[b]]
+
+            # Crossover & mutation
+            child1, child2 = crossover(parent1, parent2)
+            child1 = mutation(child1)
+            child2 = mutation(child2)
+
+            # Update best child
+            for child in [child1, child2]:
+                child_fitness = fitness(child)
+                if child_fitness < best_fitness:
+                    best_fitness = child_fitness
+                    best_cube = child
+
+            # Increment a and b by 2 to form the next pair
+            a += 2
+            b += 2
