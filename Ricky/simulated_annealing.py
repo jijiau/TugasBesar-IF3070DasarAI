@@ -57,6 +57,9 @@ class SimulatedAnnealingSolver(CubeSolver):
         objective_values = []
         stuck_count = 0
 
+        # Store the initial objective value for reporting later
+        initial_objective_value = current_value
+
         start_time = datetime.now()
 
         plt.ion()  
@@ -93,28 +96,31 @@ class SimulatedAnnealingSolver(CubeSolver):
             neighbor = self.generate_random_neighbor(current_state)
             neighbor_value = self.calculate_objective(neighbor)
             
-            delta_e = neighbor_value - current_value
+            delta_e = current_value - neighbor_value  # Positive if neighbor is better
 
-            if delta_e < 0: 
-                capped_delta_e_over_temp = (delta_e / temperature)
-                exp_value = math.exp(capped_delta_e_over_temp)
+            if delta_e > 0:
+                # Cap delta_e / temperature to avoid overflow in math.exp
+                capped_delta_e = min(delta_e / temperature, 700)  # 700 is a safe threshold for math.exp
+                exp_value = math.exp(capped_delta_e)
                 exp_values.append(exp_value)
             else:
-                exp_values.append(None)  
+                exp_values.append(None)
             
             valid_exp_values = [v for v in exp_values if v is not None]
             valid_iterations = [iterations[i] for i, v in enumerate(exp_values) if v is not None]
             ax2.plot(valid_iterations, valid_exp_values, color='red')
-            if delta_e >= 0 or exp_value > random.random():
+
+            # Accept neighbor if it's better or by probability
+            if delta_e > 0 or math.exp(min(delta_e / temperature, 700)) > random.random():
                 current_state = neighbor
                 current_value = neighbor_value
                 
-                if current_value > best_value:
+                if current_value < best_value:
                     best_state = current_state
                     best_value = current_value
             else:
                 stuck_count += 1
-                  
+                    
             temperature *= cooling_rate
             iteration += 1
 
@@ -133,7 +139,7 @@ class SimulatedAnnealingSolver(CubeSolver):
         end_time = datetime.now()
         duration = (end_time - start_time).total_seconds() * 1000
 
-        fig2.text(0.5, 0.05, f'Final Objective Value: {current_value} Duration: {duration} ms Stuck Count: {stuck_count}' , ha='center', fontsize=10)
+        fig2.text(0.5, 0.05, f'Final Objective Value: {current_value} Duration: {duration} ms Stuck Count: {stuck_count}', ha='center', fontsize=10)
 
         for ax in axes_initial:
             ax.set_title('Initial State', fontsize=8)
@@ -147,12 +153,13 @@ class SimulatedAnnealingSolver(CubeSolver):
         print("Final State (Array Format):")
         self.display_formatted_state(best_state)
 
+        # Display the objective value change from initial to final
+        print(f"Objective Value from {initial_objective_value} to {current_value}\n")
+
         # Display swap history after annealing
         print("Swap History : \n")
         swap_history = self.display_swap_history()
         print(swap_history)
         print("\n")
-
         
         return best_state
-
