@@ -1,5 +1,6 @@
 import numpy as np
 import random
+import math
 
 #parameter variasi dan iterasi
 population_sizes = [10, 20, 30] 
@@ -112,28 +113,45 @@ def valid_position(i, j, k, x, y, z):
 
 #crossover
 def crossover(parent1, parent2):
-    n = len(parent1)  # Size of the cube
+    n = len(parent1)  
     child1, child2 = parent1.copy(), parent2.copy()
 
     i1, j1, k1 = random.randint(0, n-1), random.randint(0, n-1), random.randint(0, n-1)
     i2, j2, k2 = random.randint(0, n-1), random.randint(0, n-1), random.randint(0, n-1)
 
-    while (not valid_position(i1, j1, k1, i2, j2, k2) and (child1[i1, j1, k1] != child2[i2, j2, k2])):
+    while (not valid_position(i1, j1, k1, i2, j2, k2) or (child1[i1, j1, k1] == child2[i2, j2, k2])):
         i1, j1, k1 = random.randint(0, n-1), random.randint(0, n-1), random.randint(0, n-1)
         i2, j2, k2 = random.randint(0, n-1), random.randint(0, n-1), random.randint(0, n-1)
+
+    val1 = child1[i1, j1, k1]
+    val2 = child2[i2, j2, k2]
     
-    child1[i1, j1, k1], child2[i2, j2, k2] = parent2[i2, j2, k2], parent1[i1, j1, k1]
+    child1[i1, j1, k1], child2[i2, j2, k2] = val2, val1
+
+    print(f"[{i1}, {j1}, {k1}] ditukar dengan [{i2}, {j2}, {k2}]")
+
     return child1, child2
+
 
         
 #mutation
 def mutation(cube, mutation_rate=0.05):
-    i1, j1, k1 = random.randint(0, 4), random.randint(0, 4), random.randint(0, 4)
-    i2, j2, k2 = random.randint(0, 4), random.randint(0, 4), random.randint(0, 4)
+    num_swaps = math.floor(125 * mutation_rate)
+    used_pairs = set()  
+    for _ in range(num_swaps):
+        while True:
+            i1, j1, k1 = random.randint(0, 4), random.randint(0, 4), random.randint(0, 4)
+            i2, j2, k2 = random.randint(0, 4), random.randint(0, 4), random.randint(0, 4)
 
-    cube[i1, j1, k1], cube[i2, j2, k2] = cube[i2, j2, k2], cube[i1, j1, k1]
+            pair = ((i1, j1, k1), (i2, j2, k2))
 
+            if pair not in used_pairs and (i1, j1, k1) != (i2, j2, k2):
+                used_pairs.add(pair)
+                cube[i1, j1, k1], cube[i2, j2, k2] = cube[i2, j2, k2], cube[i1, j1, k1]
+                print(f"[{i1}, {j1}, {k1}] ditukar dengan [{i2}, {j2}, {k2}]")
+                break
     return cube
+
 
 def run_genetic_algorithm(population_size, num_iterations):
     cubes = []
@@ -143,6 +161,9 @@ def run_genetic_algorithm(population_size, num_iterations):
     #smallest fitness (best cube)
     best_cube = None
     best_fitness = float('inf')
+
+    a = 0
+    b = 1
 
     for _ in range(population_size):
         numbers = random.sample(range(1, 126), 125)
@@ -157,28 +178,38 @@ def run_genetic_algorithm(population_size, num_iterations):
             best_cube = cube
 
     for _ in range(num_iterations):
-        chosen_indices = choose_cube_by_random(2, fitness_values, total_fitness)
+        chosen_indices = choose_cube_by_random(10, fitness_values, total_fitness)
+        
         if len(chosen_indices) < 2:
             continue
 
-        parent1, parent2 = cubes[chosen_indices[0]], cubes[chosen_indices[1]]
 
-        #crossover & mutation
-        child1, child2 = crossover(parent1, parent2)
-        child1 = mutation(child1)
-        child2 = mutation(child2)
+        while (b < (len(chosen_indices))):
+            parent1, parent2 = cubes[chosen_indices[a]], cubes[chosen_indices[b]]
+
+            #crossover & mutation
+            child1, child2 = crossover(parent1, parent2)
+            child1 = mutation(child1)
+            child2 = mutation(child2)
+
+            
+            for child in [child1, child2]:
+                child_fitness = fitness(child)
+                if child_fitness < best_fitness:
+                    best_fitness = child_fitness
+                    best_cube = child
+            print("ababababab")
+            print(a)
+            print(b)
+            print(len(chosen_indices))
+
+            a += 2
+            b += 2
 
         # print("child1")
         # print(child1)
         # print("child2")
         # print(child2)
-
-        #update best child
-        for child in [child1, child2]:
-            child_fitness = fitness(child)
-            if child_fitness < best_fitness:
-                best_fitness = child_fitness
-                best_cube = child
 
     return best_cube, best_fitness
 
@@ -230,12 +261,13 @@ def run_genetic_algorithm(population_size, num_iterations):
 #     return best_cube, best_fitness
 
 #global best cube & fitness
+
 global_best_cube = None
 global_best_fitness = float('inf')
 
-for pop_size in population_sizes:
-    for _ in range(num_trials):
-        for num_iter in iterations:
+for pop_size in population_sizes: #10, 20, 30
+    for _ in range(num_trials): #3
+        for num_iter in iterations: #50, 100, 150
             print(f"\nRunning GA with Population Size: {pop_size}, Iterations: {num_iter}")
             best_cube, best_fitness = run_genetic_algorithm(pop_size, num_iter)
             print("\nBest cube found in this run:")
@@ -245,6 +277,7 @@ for pop_size in population_sizes:
             if best_fitness < global_best_fitness:
                 global_best_fitness = best_fitness
                 global_best_cube = best_cube
+
 
 print("\nGlobal Best Result")
 print("Global Best Cube:\n", global_best_cube)
