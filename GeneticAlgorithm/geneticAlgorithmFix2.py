@@ -9,7 +9,7 @@ def create_cube():
     cube = np.array(numbers).reshape((5, 5, 5))
     return cube
 
-def generate_different_cubes(cube, num_cubes=100):
+def generate_different_cubes(cube, num_cubes=4):
     cubes = []
     for _ in range(num_cubes):
         new_cube = cube.copy()
