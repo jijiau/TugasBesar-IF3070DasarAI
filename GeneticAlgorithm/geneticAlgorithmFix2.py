@@ -1,6 +1,6 @@
 import numpy as np
 import random
-import heapq 
+import heapq   
 
 def create_cube():
     numbers = list(map(int, input("Masukkan 125 angka (dipisahkan spasi) :\n").split()))
@@ -80,8 +80,7 @@ def choose_cube_by_random(randomize_count, priority_queue):
     print(chosen_indices)
 
     return chosen_indices
-
-def valid_position(i1, j1, k1, i2, j2, k2):
+        (i1, j1, k1, ji2, 2, k2):
     if i == x or j == y or k == z:
         return False
 
