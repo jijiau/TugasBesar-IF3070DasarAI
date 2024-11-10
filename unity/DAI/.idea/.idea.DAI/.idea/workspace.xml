@@ -10,6 +10,10 @@
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
+  <component name="HighlightingSettingsPerFile">
+    <setting file="file://$PROJECT_DIR$/Assets/Scripts/algo_sideway.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/Scripts/video_player.cs" root0="FORCE_HIGHLIGHTING" />
+  </component>
   <component name="ProjectColorInfo">{
   &quot;associatedIndex&quot;: 7
 }</component>
@@ -87,7 +91,10 @@
       <workItem from="1729938823556" duration="3868000" />
       <workItem from="1730371632186" duration="2745000" />
       <workItem from="1730452569146" duration="1300000" />
-      <workItem from="1730970700367" duration="6475000" />
+      <workItem from="1730970700367" duration="7077000" />
+      <workItem from="1731057457429" duration="3738000" />
+      <workItem from="1731116187186" duration="5696000" />
+      <workItem from="1731219555421" duration="7519000" />
     </task>
     <servers />
   </component>
