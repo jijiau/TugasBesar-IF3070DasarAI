@@ -10,7 +10,7 @@ def create_cube():
     cube = np.array(numbers).reshape((5, 5, 5))
     return cube
 
-#ngeshuffle sebanyak 100 cube (tapi gacuman dua ngka doang)
+#ngeshuffle sebanyak 100 cube (tapi gacuman dua angka doang)
 def generate_different_cubes(cube, num_cubes=100):
     cubes = []
     for _ in range(num_cubes):
@@ -65,6 +65,7 @@ def crossover(parent1, parent2, idx1, idx2):
 #mutation
 def mutation(cube, mutation_rate=0.05):
     #nentuin berapa kali dia mutasi
+    #mutation rate : probabilitas kubus akan mutasi
     num_swaps = int(125 * mutation_rate)
     for _ in range(num_swaps):
         i1, j1, k1 = random.randint(0, 4), random.randint(0, 4), random.randint(0, 4)
