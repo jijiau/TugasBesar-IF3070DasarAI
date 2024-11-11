@@ -14,18 +14,21 @@
 </h2>
 
 
-<h3 align="center">
-  <br>
-  Proyek ini bertujuan untuk mengimplementasikan tiga algoritma local search (Steepest-ascent, Simulated Annealing, dan Genetic Algorithm) untuk menyelesaikan permasalahan Diagonal Magic Cube berukuran 5x5x5. Setiap algoritma diterapkan untuk mengoptimalkan konfigurasi angka dalam kubus sehingga memenuhi kriteria “magic number” di setiap baris, kolom, dan diagonal.
-  Objective functionharus mengukur seberapa jauh setiap aspek dari kubus dalam memenuhi magic number. Nilai dihitung melalui selisih objective value saat ini (penjumlahan current state) dengan objective value yang diharapkan, yaitu 315. Penghitungan objective value saat ini harus memenuhi syarat magic cube, Jumlah angka pada setiap baris, kolom, dan tiang
-  Jumlah diagonal bidang, baik horizontal maupun vertikal
-  Jumlah diagonal ruang antar sudut pada kubus
-  Objective function akhir adalah jumlah dari semua selisih yang telah dijumlahkan. Selisih ditulis dengan simbol S. Jadi, total objective function-nya dapat dituliskan sebagai, 
-  (Sbaris ) + (Skolom)+ (Stiang)+ (Sdiagonal bidang)+ (Sdiagonal ruang)      
-  Semakin kecil nilai objective function, semakin baik solusi tersebut, karena itu menunjukkan bahwa semua baris, kolom, tiang, dan diagonal semakin mendekati magic number (315).
 
-  <br>
-</h3>
+## Penjelasan Tugas
+Proyek ini bertujuan untuk mengimplementasikan tiga algoritma local search (Steepest-ascent, Simulated Annealing, dan Genetic Algorithm) untuk menyelesaikan permasalahan Diagonal Magic Cube berukuran 5x5x5. Setiap algoritma diterapkan untuk mengoptimalkan konfigurasi angka dalam kubus sehingga memenuhi kriteria “magic number” di setiap baris, kolom, dan diagonal.
+Objective functionharus mengukur seberapa jauh setiap aspek dari kubus dalam memenuhi magic number. Nilai dihitung melalui selisih objective value saat ini (penjumlahan current state) dengan objective value yang diharapkan, yaitu 315. Penghitungan objective value saat ini harus memenuhi syarat magic cube, Jumlah angka pada setiap baris, kolom, dan tiang
+Jumlah diagonal bidang, baik horizontal maupun vertikal
+Jumlah diagonal ruang antar sudut pada kubus
+Objective function akhir adalah jumlah dari semua selisih yang telah dijumlahkan. Selisih ditulis dengan simbol S. Jadi, total objective function-nya dapat dituliskan sebagai, 
+(Sbaris ) + (Skolom)+ (Stiang)+ (Sdiagonal bidang)+ (Sdiagonal ruang)      
+Semakin kecil nilai objective function, semakin baik solusi tersebut, karena itu menunjukkan bahwa semua baris, kolom, tiang, dan diagonal semakin mendekati magic number (315).
+
+## Objective Function
+<div align="center">
+<img src="gambar/objective.jpg" alt="Objective Function" width="500">
+</div>
+
 
 ## Melakukan *Cloning* 
 
@@ -47,7 +50,12 @@
 ```
 
 ## Pembagian Tugas
-Pembagian tugas untuk proyek Diagonal Magic Cube ini dibagi berdasarkan algoritma dan fitur tambahan yang harus diimplementasikan. Jihan Aurelia (NIM 18222001) dan Naswaa Anggun Athiefah (NIM 18222021) bertanggung jawab atas implementasi dan eksperimen menggunakan algoritma Genetic Algorithm, yang mencakup konfigurasi dan evaluasi parameter populasi serta iterasi untuk menemukan solusi optimal. Ricky Wijaya (NIM 18222043) memfokuskan pengerjaannya pada algoritma Simulated Annealing, di mana ia akan menguji berbagai nilai parameter untuk mengoptimalkan proses pencarian solusi sambil meminimalisasi stuck pada local optima. Muhammad Adli Arindra (NIM 18222089) bertugas mengimplementasikan algoritma Steepest Ascent Hill Climbing dengan Sideways Move, dan juga bertanggung jawab atas fitur bonus, termasuk pengembangan menggunakan Unity untuk menampilkan visualisasi yang lebih interaktif.
+| Nama (NIM) | Tugas |
+| ------------- | ------------- |
+| Jihan Aurelia (18222001)  | Genetic Algorithm |
+| Nasywaa Anggun Athiefah (18222021)  | Genetic Algorithm  |
+| Ricky Wijaya (18222043)  | Simulated Annealing  |
+| Muhammad Adli Arindra (18222089)  | Steepest Ascent Hill Climbing with Sideways Move , Membuat bonus, Membuat Unity|
 
 ## Reference 
 Brownlee, J. (2021, October 12). Stochastic Hill Climbing in Python from Scratch - MachineLearningMastery.com. Machine Learning Mastery. Retrieved October 2, 2024, from 
