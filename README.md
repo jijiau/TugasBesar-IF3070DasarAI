@@ -59,21 +59,21 @@ Semakin kecil nilai objective function, semakin baik solusi tersebut, karena itu
 
 ## Reference 
 Brownlee, J. (2021, October 12). Stochastic Hill Climbing in Python from Scratch - MachineLearningMastery.com. Machine Learning Mastery. Retrieved October 2, 2024, from 
-https://machinelearningmastery.com/stochastic-hill-climbing-in-python-from-scratch/ 
+https://machinelearningmastery.com/stochastic-hill-climbing-in-python-from-scratch/ <br />
 Do, While and For loops in Pseudocode - PseudoEditor. (n.d.). Pseudocode Online Editor.
-Retrieved September 29, 2024, from https://pseudoeditor.com/guides/loops-and-iteration
-Jain, S. (2023, April 20). Introduction to Hill Climbing | Artificial Intelligence. GeeksforGeeks. Retrieved October 2, 2024, from https://www.geeksforgeeks.org/introduction-hill-climbing-artificial-intelligence/ 
+Retrieved September 29, 2024, from https://pseudoeditor.com/guides/loops-and-iteration<br />
+Jain, S. (2023, April 20). Introduction to Hill Climbing | Artificial Intelligence. GeeksforGeeks. Retrieved October 2, 2024, from https://www.geeksforgeeks.org/introduction-hill-climbing-artificial-intelligence/ <br />
 Jain, S. (2024, August 22). Local Search Algorithm in Artificial Intelligence. GeeksforGeeks.
-Retrieved September 29, 2024, from
-https://www.geeksforgeeks.org/local-search-algorithm-in-artificial-intelligence/
+Retrieved September 29, 2024, from<br />
+https://www.geeksforgeeks.org/local-search-algorithm-in-artificial-intelligence/<br />
 Kothari, S. (2023, September 25). Local Search Algorithms in AI: A Comprehensive Guide.
 Simplilearn.com. Retrieved September 29, 2024, from
-https://www.simplilearn.com/local-search-algorithms-in-ai-article
+https://www.simplilearn.com/local-search-algorithms-in-ai-article<br />
 Magic cube. (n.d.). Wikipedia. Retrieved September 29, 2024, from
-https://en.wikipedia.org/wiki/Magic_cube
-Putria, N. E. (2022). Comparison of Simple Hill Climbing Algorithm and Stepest Ascent Hill Climbing Algorithm in The Game Order of Numbers. International Journal of Information System & Technology, 6(1), 33-40. 
-Samosir, S. A. (2019). IMPLEMENTASI METODE STEEPEST ASCENT HILL CLIMBING DALAM PENCARIAN RUTE TERDEKAT PROMOSI KAMPUS STMIK BUDI DARMA. Jurnal Pelita Informatika, 8(2), 283-287. Silvilestari. (2021). Sideways Move Hill Climbing Algorithm To Solve Cases In Puzzle Game 8. International Journal of Information System & Technology, 5(4), 366-370. 
-Stochastic Hill Climbing With Random Restarts. (n.d.). Algorithm Afternoon. Retrieved October 2, 2024, from https://algorithmafternoon.com/stochastic/stochastic_hill_climbing_with_random_restarts/ 
+https://en.wikipedia.org/wiki/Magic_cube<br />
+Putria, N. E. (2022). Comparison of Simple Hill Climbing Algorithm and Stepest Ascent Hill Climbing Algorithm in The Game Order of Numbers. International Journal of Information System & Technology, 6(1), 33-40. <br />
+Samosir, S. A. (2019). IMPLEMENTASI METODE STEEPEST ASCENT HILL CLIMBING DALAM PENCARIAN RUTE TERDEKAT PROMOSI KAMPUS STMIK BUDI DARMA. Jurnal Pelita Informatika, 8(2), 283-287. Silvilestari. (2021). Sideways Move Hill Climbing Algorithm To Solve Cases In Puzzle Game 8. International <br />Journal of Information System & Technology, 5(4), 366-370. 
+Stochastic Hill Climbing With Random Restarts. (n.d.). Algorithm Afternoon. Retrieved October 2, 2024, from https://algorithmafternoon.com/stochastic/stochastic_hill_climbing_with_random_restarts/ <br />
 Slide Kuliah IF3070 - Foundations of Artificial Intelligence.
 
 
