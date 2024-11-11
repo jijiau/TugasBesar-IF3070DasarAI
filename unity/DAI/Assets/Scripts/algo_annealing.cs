@@ -26,7 +26,7 @@ public class algo_annealing : MonoBehaviour {
     }
 
     public static List<int[]> Run(int[,,] values, double initialTemp = 1000, double coolingRate = 0.999,
-        double minTemp = 0.01) {
+        double minTemp = 0.001) {
         List<int[]> sequences = new List<int[]>();
         int[,,] currentState = (int[,,])values.Clone();
         double currentValue = main.ObjectiveFunction(currentState);

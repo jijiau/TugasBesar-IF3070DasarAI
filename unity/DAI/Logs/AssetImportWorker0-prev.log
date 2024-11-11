@@ -1,0 +1,384 @@
+Using pre-set license
+Built from '2022.3/staging' branch; Version is '2022.3.19f1 (244b723c30a6) revision 2378610'; Using compiler version '192829333'; Build Type 'Release'
+OS: 'Windows 10  (10.0.19045) 64bit CoreSingleLanguage' Language: 'en' Physical Memory: 8029 MB
+BatchMode: 1, IsHumanControllingUs: 0, StartBugReporterOnCrash: 0, Is64bit: 1, IsPro: 1
+
+COMMAND LINE ARGUMENTS:
+C:\Program Files\Unity\Hub\Editor\2022.3.19f1\Editor\Unity.exe
+-adb2
+-batchMode
+-noUpm
+-name
+AssetImportWorker0
+-projectPath
+C:/Users/Adli/Desktop/ilegil/semester 5/dai/TugasBesar-IF3070DasarAI/unity/DAI
+-logFile
+Logs/AssetImportWorker0.log
+-srvPort
+62103
+Successfully changed project path to: C:/Users/Adli/Desktop/ilegil/semester 5/dai/TugasBesar-IF3070DasarAI/unity/DAI
+C:/Users/Adli/Desktop/ilegil/semester 5/dai/TugasBesar-IF3070DasarAI/unity/DAI
+[UnityMemory] Configuration Parameters - Can be set up in boot.config
+    "memorysetup-bucket-allocator-granularity=16"
+    "memorysetup-bucket-allocator-bucket-count=8"
+    "memorysetup-bucket-allocator-block-size=33554432"
+    "memorysetup-bucket-allocator-block-count=8"
+    "memorysetup-main-allocator-block-size=16777216"
+    "memorysetup-thread-allocator-block-size=16777216"
+    "memorysetup-gfx-main-allocator-block-size=16777216"
+    "memorysetup-gfx-thread-allocator-block-size=16777216"
+    "memorysetup-cache-allocator-block-size=4194304"
+    "memorysetup-typetree-allocator-block-size=2097152"
+    "memorysetup-profiler-bucket-allocator-granularity=16"
+    "memorysetup-profiler-bucket-allocator-bucket-count=8"
+    "memorysetup-profiler-bucket-allocator-block-size=33554432"
+    "memorysetup-profiler-bucket-allocator-block-count=8"
+    "memorysetup-profiler-allocator-block-size=16777216"
+    "memorysetup-profiler-editor-allocator-block-size=1048576"
+    "memorysetup-temp-allocator-size-main=16777216"
+    "memorysetup-job-temp-allocator-block-size=2097152"
+    "memorysetup-job-temp-allocator-block-size-background=1048576"
+    "memorysetup-job-temp-allocator-reduction-small-platforms=262144"
+    "memorysetup-allocator-temp-initial-block-size-main=262144"
+    "memorysetup-allocator-temp-initial-block-size-worker=262144"
+    "memorysetup-temp-allocator-size-background-worker=32768"
+    "memorysetup-temp-allocator-size-job-worker=262144"
+    "memorysetup-temp-allocator-size-preload-manager=33554432"
+    "memorysetup-temp-allocator-size-nav-mesh-worker=65536"
+    "memorysetup-temp-allocator-size-audio-worker=65536"
+    "memorysetup-temp-allocator-size-cloud-worker=32768"
+    "memorysetup-temp-allocator-size-gi-baking-worker=262144"
+    "memorysetup-temp-allocator-size-gfx=262144"
+Player connection [95032] Host "[IP] 192.168.56.1 [Port] 0 [Flags] 2 [Guid] 3435756582 [EditorId] 3435756582 [Version] 1048832 [Id] WindowsEditor(7,LAPTOP-49E8FNGD) [Debug] 1 [PackageName] WindowsEditor [ProjectName] Editor" joined multi-casting on [225.0.0.222:54997]...
+
+Player connection [95032] Host "[IP] 192.168.56.1 [Port] 0 [Flags] 2 [Guid] 3435756582 [EditorId] 3435756582 [Version] 1048832 [Id] WindowsEditor(7,LAPTOP-49E8FNGD) [Debug] 1 [PackageName] WindowsEditor [ProjectName] Editor" joined alternative multi-casting on [225.0.0.222:34997]...
+
+[Physics::Module] Initialized MultithreadedJobDispatcher with 7 workers.
+Refreshing native plugins compatible for Editor in 14.01 ms, found 3 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Initialize engine version: 2022.3.19f1 (244b723c30a6)
+[Subsystems] Discovering subsystems at path C:/Program Files/Unity/Hub/Editor/2022.3.19f1/Editor/Data/Resources/UnitySubsystems
+[Subsystems] Discovering subsystems at path C:/Users/Adli/Desktop/ilegil/semester 5/dai/TugasBesar-IF3070DasarAI/unity/DAI/Assets
+GfxDevice: creating device client; threaded=0; jobified=0
+Direct3D:
+    Version:  Direct3D 11.0 [level 11.1]
+    Renderer: NVIDIA GeForce GTX 1650 (ID=0x1f99)
+    Vendor:   NVIDIA
+    VRAM:     3950 MB
+    Driver:   31.0.15.4633
+Initialize mono
+Mono path[0] = 'C:/Program Files/Unity/Hub/Editor/2022.3.19f1/Editor/Data/Managed'
+Mono path[1] = 'C:/Program Files/Unity/Hub/Editor/2022.3.19f1/Editor/Data/MonoBleedingEdge/lib/mono/unityjit-win32'
+Mono config path = 'C:/Program Files/Unity/Hub/Editor/2022.3.19f1/Editor/Data/MonoBleedingEdge/etc'
+Using monoOptions --debugger-agent=transport=dt_socket,embedding=1,server=y,suspend=n,address=127.0.0.1:56516
+Begin MonoManager ReloadAssembly
+Registering precompiled unity dll's ...
+Register platform support module: C:/Program Files/Unity/Hub/Editor/2022.3.19f1/Editor/Data/PlaybackEngines/WebGLSupport/UnityEditor.WebGL.Extensions.dll
+Register platform support module: C:/Program Files/Unity/Hub/Editor/2022.3.19f1/Editor/Data/PlaybackEngines/WindowsStandaloneSupport/UnityEditor.WindowsStandalone.Extensions.dll
+Registered in 0.020287 seconds.
+- Loaded All Assemblies, in  0.551 seconds
+Native extension for WindowsStandalone target not found
+Native extension for WebGL target not found
+Mono: successfully reloaded assembly
+- Finished resetting the current domain, in  0.387 seconds
+Domain Reload Profiling: 934ms
+	BeginReloadAssembly (186ms)
+		ExecutionOrderSort (0ms)
+		DisableScriptedObjects (0ms)
+		BackupInstance (0ms)
+		ReleaseScriptingObjects (0ms)
+		CreateAndSetChildDomain (1ms)
+	RebuildCommonClasses (50ms)
+	RebuildNativeTypeToScriptingClass (14ms)
+	initialDomainReloadingComplete (93ms)
+	LoadAllAssembliesAndSetupDomain (204ms)
+		LoadAssemblies (182ms)
+		RebuildTransferFunctionScriptingTraits (0ms)
+		AnalyzeDomain (201ms)
+			TypeCache.Refresh (200ms)
+				TypeCache.ScanAssembly (177ms)
+			ScanForSourceGeneratedMonoScriptInfo (0ms)
+			ResolveRequiredComponents (0ms)
+	FinalizeReload (387ms)
+		ReleaseScriptCaches (0ms)
+		RebuildScriptCaches (0ms)
+		SetupLoadedEditorAssemblies (305ms)
+			LogAssemblyErrors (0ms)
+			InitializePlatformSupportModulesInManaged (16ms)
+			SetLoadedEditorAssemblies (7ms)
+			RefreshPlugins (0ms)
+			BeforeProcessingInitializeOnLoad (4ms)
+			ProcessInitializeOnLoadAttributes (218ms)
+			ProcessInitializeOnLoadMethodAttributes (61ms)
+			AfterProcessingInitializeOnLoad (0ms)
+			EditorAssembliesLoaded (0ms)
+		ExecutionOrderSort2 (0ms)
+		AwakeInstancesAfterBackupRestoration (0ms)
+========================================================================
+Worker process is ready to serve import requests
+Begin MonoManager ReloadAssembly
+- Loaded All Assemblies, in  4.780 seconds
+Refreshing native plugins compatible for Editor in 67.37 ms, found 3 plugins.
+Native extension for WindowsStandalone target not found
+Native extension for WebGL target not found
+Package Manager log level set to [2]
+[Package Manager] Server::EnsureServerProcessIsRunning -- launch failed, reason: Unity was launched with the -noUpm command-line argument
+[Package Manager] UpmClient::Send -- Unable to send message (not connected to UPM process).
+[Package Manager] Cannot connect to Unity Package Manager local server
+Mono: successfully reloaded assembly
+- Finished resetting the current domain, in  1.663 seconds
+Domain Reload Profiling: 6440ms
+	BeginReloadAssembly (282ms)
+		ExecutionOrderSort (0ms)
+		DisableScriptedObjects (7ms)
+		BackupInstance (0ms)
+		ReleaseScriptingObjects (0ms)
+		CreateAndSetChildDomain (42ms)
+	RebuildCommonClasses (62ms)
+	RebuildNativeTypeToScriptingClass (15ms)
+	initialDomainReloadingComplete (69ms)
+	LoadAllAssembliesAndSetupDomain (4349ms)
+		LoadAssemblies (3648ms)
+		RebuildTransferFunctionScriptingTraits (0ms)
+		AnalyzeDomain (872ms)
+			TypeCache.Refresh (811ms)
+				TypeCache.ScanAssembly (746ms)
+			ScanForSourceGeneratedMonoScriptInfo (48ms)
+			ResolveRequiredComponents (10ms)
+	FinalizeReload (1664ms)
+		ReleaseScriptCaches (0ms)
+		RebuildScriptCaches (0ms)
+		SetupLoadedEditorAssemblies (1070ms)
+			LogAssemblyErrors (0ms)
+			InitializePlatformSupportModulesInManaged (17ms)
+			SetLoadedEditorAssemblies (10ms)
+			RefreshPlugins (0ms)
+			BeforeProcessingInitializeOnLoad (114ms)
+			ProcessInitializeOnLoadAttributes (846ms)
+			ProcessInitializeOnLoadMethodAttributes (61ms)
+			AfterProcessingInitializeOnLoad (21ms)
+			EditorAssembliesLoaded (1ms)
+		ExecutionOrderSort2 (0ms)
+		AwakeInstancesAfterBackupRestoration (13ms)
+Launched and connected shader compiler UnityShaderCompiler.exe after 0.18 seconds
+Refreshing native plugins compatible for Editor in 20.10 ms, found 3 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Unloading 3147 Unused Serialized files (Serialized files now loaded: 0)
+Unloading 32 unused Assets / (57.1 KB). Loaded Objects now: 3609.
+Memory consumption went from 127.2 MB to 127.2 MB.
+Total: 8.142400 ms (FindLiveObjects: 0.705300 ms CreateObjectMapping: 0.543900 ms MarkObjects: 6.557000 ms  DeleteObjects: 0.334300 ms)
+
+AssetImportParameters requested are different than current active one (requested -> active):
+  custom:container-demuxer-ogg: 62fdf1f143b41e24485cea50d1cbac27 -> 
+  custom:video-codec-MediaFoundation-h265: 746d11721c4dcdbdad8f713fa42b33f4 -> 
+  custom:video-decoder-ogg-theora: a1e56fd34408186e4bbccfd4996cb3dc -> 
+  custom:framework-win-MediaFoundation: 216162199b28c13a410421893ffa2e32 -> 
+  custom:CustomObjectIndexerAttribute: 6d391050e5a25f67b0a2c618074f2cd9 -> 
+  custom:container-demuxer-webm: 4f35f7cbe854078d1ac9338744f61a02 -> 
+  custom:container-muxer-webm: aa71ff27fc2769a1b78a27578f13a17b -> 
+  custom:video-decoder-webm-vp8: 9c59270c3fd7afecdb556c50c9e8de78 -> 
+  custom:SearchIndexIgnoredProperties: e643bd26f0fe6173181afceb89e7c659 -> 
+  custom:AudioImporter_EditorPlatform: d09bf68614088b80899f8185d706f6e7 -> 
+  custom:video-encoder-webm-vp8: eb34c28f22e8b96e1ab97ce403110664 -> 
+  custom:audio-decoder-ogg-vorbis: bf7c407c2cedff20999df2af8eb42d56 -> 
+  custom:audio-encoder-webm-vorbis: bf7c407c2cedff20999df2af8eb42d56 -> 
+========================================================================
+Received Import Request.
+  Time since last request: 2167656.693321 seconds.
+  path: Assets/Scripts/algo_genetic.cs
+  artifactKey: Guid(b369fff78a263614391096b74500b20f) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Scripts/algo_genetic.cs using Guid(b369fff78a263614391096b74500b20f) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'f2a844756882dd4328fd4ad6f840e618') in 0.019246 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 0
+========================================================================
+Received Import Request.
+  Time since last request: 822.574443 seconds.
+  path: Assets/Scripts/algo_genetic.cs
+  artifactKey: Guid(b369fff78a263614391096b74500b20f) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Scripts/algo_genetic.cs using Guid(b369fff78a263614391096b74500b20f) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '617acda6665d49ab94314344625ac875') in 0.029612 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 0
+========================================================================
+Received Import Request.
+  Time since last request: 148.242740 seconds.
+  path: Assets/Scripts/algo_genetic.cs
+  artifactKey: Guid(b369fff78a263614391096b74500b20f) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Scripts/algo_genetic.cs using Guid(b369fff78a263614391096b74500b20f) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '04c2b2a332d42a4e8a60c608d5b71b8c') in 0.003731 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 0
+========================================================================
+Received Import Request.
+  Time since last request: 62.965301 seconds.
+  path: Assets/Scripts/algo_genetic.cs
+  artifactKey: Guid(b369fff78a263614391096b74500b20f) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Scripts/algo_genetic.cs using Guid(b369fff78a263614391096b74500b20f) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '803bfe7692c96ef484e7143de032341f') in 0.005789 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 0
+========================================================================
+Received Import Request.
+  Time since last request: 14.274778 seconds.
+  path: Assets/Scripts/algo_genetic.cs
+  artifactKey: Guid(b369fff78a263614391096b74500b20f) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Scripts/algo_genetic.cs using Guid(b369fff78a263614391096b74500b20f) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '4ee69a74adec32f65647fa57536f382a') in 0.012693 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 0
+========================================================================
+Received Import Request.
+  Time since last request: 19.043597 seconds.
+  path: Assets/Scripts/algo_genetic.cs
+  artifactKey: Guid(b369fff78a263614391096b74500b20f) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Scripts/algo_genetic.cs using Guid(b369fff78a263614391096b74500b20f) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '83c5921a6451959870331c70645eb567') in 0.004597 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 0
+========================================================================
+Received Import Request.
+  Time since last request: 40.353903 seconds.
+  path: Assets/Scripts/algo_genetic.cs
+  artifactKey: Guid(b369fff78a263614391096b74500b20f) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Scripts/algo_genetic.cs using Guid(b369fff78a263614391096b74500b20f) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '4a1aee82a1517f5bfea5ba7dd324e2fe') in 0.008507 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 0
+========================================================================
+Received Import Request.
+  Time since last request: 6.800334 seconds.
+  path: Assets/Scripts/algo_genetic.cs
+  artifactKey: Guid(b369fff78a263614391096b74500b20f) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Scripts/algo_genetic.cs using Guid(b369fff78a263614391096b74500b20f) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'c900e0c6159513e09353014daf3942d4') in 0.003967 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 0
+========================================================================
+Received Import Request.
+  Time since last request: 43.458448 seconds.
+  path: Assets/Scripts/algo_genetic.cs
+  artifactKey: Guid(b369fff78a263614391096b74500b20f) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Scripts/algo_genetic.cs using Guid(b369fff78a263614391096b74500b20f) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '46e0837afa8d06d496e864b5b64c2342') in 0.003854 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 0
+========================================================================
+Received Import Request.
+  Time since last request: 21.897493 seconds.
+  path: Assets/Scripts/algo_genetic.cs
+  artifactKey: Guid(b369fff78a263614391096b74500b20f) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Scripts/algo_genetic.cs using Guid(b369fff78a263614391096b74500b20f) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'b0237a6d298f6226e1dce2078279c555') in 0.002466 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 0
+========================================================================
+Received Import Request.
+  Time since last request: 7.972321 seconds.
+  path: Assets/Scripts/algo_genetic.cs
+  artifactKey: Guid(b369fff78a263614391096b74500b20f) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Scripts/algo_genetic.cs using Guid(b369fff78a263614391096b74500b20f) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '02747b5b001f7eb722d0006bfb44ae0b') in 0.001719 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 0
+========================================================================
+Received Import Request.
+  Time since last request: 5.084236 seconds.
+  path: Assets/Scripts/algo_genetic.cs
+  artifactKey: Guid(b369fff78a263614391096b74500b20f) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Scripts/algo_genetic.cs using Guid(b369fff78a263614391096b74500b20f) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '1283d66e4fa374c3f92ed255417c5e42') in 0.002629 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 0
+========================================================================
+Received Import Request.
+  Time since last request: 2.817722 seconds.
+  path: Assets/Scripts/algo_genetic.cs
+  artifactKey: Guid(b369fff78a263614391096b74500b20f) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Scripts/algo_genetic.cs using Guid(b369fff78a263614391096b74500b20f) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '2810a5b683aa82cd634415fd4c982fc7') in 0.001119 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 0
+========================================================================
+Received Import Request.
+  Time since last request: 16.798615 seconds.
+  path: Assets/Scripts/algo_genetic.cs
+  artifactKey: Guid(b369fff78a263614391096b74500b20f) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Scripts/algo_genetic.cs using Guid(b369fff78a263614391096b74500b20f) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '4ebf12619ccc58ebf29f26c32947dfbb') in 0.000940 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 0
+========================================================================
+Received Import Request.
+  Time since last request: 350.257593 seconds.
+  path: Assets/Scripts/algo_genetic.cs
+  artifactKey: Guid(b369fff78a263614391096b74500b20f) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Scripts/algo_genetic.cs using Guid(b369fff78a263614391096b74500b20f) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'de1b73868e25f739b3a474fe41887faa') in 0.002511 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 0
+========================================================================
+Received Import Request.
+  Time since last request: 487.279910 seconds.
+  path: Assets/Scripts/algo_genetic.cs
+  artifactKey: Guid(b369fff78a263614391096b74500b20f) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Scripts/algo_genetic.cs using Guid(b369fff78a263614391096b74500b20f) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '7a2b13fa9aa06997e349e14a83077c38') in 0.004567 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 0
+========================================================================
+Received Import Request.
+  Time since last request: 75.230891 seconds.
+  path: Assets/Scripts/algo_genetic.cs
+  artifactKey: Guid(b369fff78a263614391096b74500b20f) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Scripts/algo_genetic.cs using Guid(b369fff78a263614391096b74500b20f) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '19b1bb78fedf83c561ec8083088e65b6') in 0.001211 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 0
+========================================================================
+Received Import Request.
+  Time since last request: 198.120296 seconds.
+  path: Assets/Scripts/algo_genetic.cs
+  artifactKey: Guid(b369fff78a263614391096b74500b20f) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Scripts/algo_genetic.cs using Guid(b369fff78a263614391096b74500b20f) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '96c63a6cf075454f79f1133ad9a9e551') in 0.002184 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 0
+========================================================================
+Received Import Request.
+  Time since last request: 30.688824 seconds.
+  path: Assets/Scripts/algo_genetic.cs
+  artifactKey: Guid(b369fff78a263614391096b74500b20f) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Scripts/algo_genetic.cs using Guid(b369fff78a263614391096b74500b20f) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'fa9c0b02d1ec1c8c4eec6c335e99f66b') in 0.001514 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 0
+========================================================================
+Received Import Request.
+  Time since last request: 79.820109 seconds.
+  path: Assets/Scripts/algo_genetic.cs
+  artifactKey: Guid(b369fff78a263614391096b74500b20f) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Scripts/algo_genetic.cs using Guid(b369fff78a263614391096b74500b20f) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '8f121dbb114ad2f1151724ac87425235') in 0.001615 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 0
+========================================================================
+Received Import Request.
+  Time since last request: 106.236422 seconds.
+  path: Assets/Scripts/algo_genetic.cs
+  artifactKey: Guid(b369fff78a263614391096b74500b20f) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Scripts/algo_genetic.cs using Guid(b369fff78a263614391096b74500b20f) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '54acd26821ceaa6330461d416b3a55e2') in 0.001909 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 0
+========================================================================
+Received Import Request.
+  Time since last request: 151.939190 seconds.
+  path: Assets/Scripts/algo_genetic.cs
+  artifactKey: Guid(b369fff78a263614391096b74500b20f) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Scripts/algo_genetic.cs using Guid(b369fff78a263614391096b74500b20f) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'b832ec84cc93042297ad37927abe44b1') in 0.001367 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 0
+========================================================================
+Received Import Request.
+  Time since last request: 81.434854 seconds.
+  path: Assets/Scripts/algo_genetic.cs
+  artifactKey: Guid(b369fff78a263614391096b74500b20f) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Scripts/algo_genetic.cs using Guid(b369fff78a263614391096b74500b20f) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'a5115d4b967de0e585a4d7c02d3e539e') in 0.002076 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 0
+========================================================================
+Received Import Request.
+  Time since last request: 142.178960 seconds.
+  path: Assets/Scripts/algo_genetic.cs
+  artifactKey: Guid(b369fff78a263614391096b74500b20f) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Scripts/algo_genetic.cs using Guid(b369fff78a263614391096b74500b20f) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '23863b194e67ad02dfa780d2188ade73') in 0.002984 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 0
+========================================================================
+Received Import Request.
+  Time since last request: 379.060806 seconds.
+  path: Assets/Scripts/algo_genetic.cs
+  artifactKey: Guid(b369fff78a263614391096b74500b20f) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Scripts/algo_genetic.cs using Guid(b369fff78a263614391096b74500b20f) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '2bb95349cbb5ecc3c4b400841f63b05f') in 0.002497 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 0

@@ -1,6 +1,7 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.IO;
 using TMPro;
 using UnityEngine;
 using Random = UnityEngine.Random;
@@ -14,6 +15,8 @@ public class main : MonoBehaviour
 
     public GameObject CubeGameObject;
     private cube _cube;
+
+    public static string State = "";
     
     public void Start() {
         _cube = CubeGameObject.GetComponent<cube>();
@@ -83,10 +86,29 @@ public class main : MonoBehaviour
     public void RunSteepestAscent() {
         ResetCube();
         _cube.SetSequence(algo_sideway.Run(_cube.Values));
+        State = "Steepest";
     }
 
     public void RunAnnealing() {
         ResetCube();
         _cube.SetSequence(algo_annealing.Run(_cube.Values));
+        State = "Annealing";
+    }
+
+    public void RunGenetic() {
+        ResetCube();
+        _cube.SetSequence(algo_genetic.Run(_cube.Values));
+        State = "Genetic";
+    }
+
+    public void GetCSV() {
+        string path = Application.streamingAssetsPath + "/" + State + ".csv";
+        using (StreamWriter writer = new StreamWriter(path)) {
+            writer.WriteLine("idx,value");
+
+            for (int i = 0; i < _cube.Sequence.Count; ++i) {
+                writer.WriteLine(i.ToString() + "," + _cube.Sequence[i][6].ToString());
+            }
+        }
     }
 }
